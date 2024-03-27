@@ -1,12 +1,12 @@
 import random
 
-# カードのデッキを作成
+# Define card suits, ranks, and corresponding values
 suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 ranks = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace']
 values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
           'Jack': 10, 'Queen': 10, 'King': 10, 'Ace': 11}
 
-# カードクラスの定義
+# Define Card class
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -16,7 +16,7 @@ class Card:
     def __str__(self):
         return f"{self.rank} of {self.suit}"
 
-# デッキクラスの定義
+# Define Deck class
 class Deck:
     def __init__(self):
         self.deck = []
@@ -30,7 +30,7 @@ class Deck:
     def deal(self):
         return self.deck.pop()
 
-# 手札クラスの定義
+# Define Hand class
 class Hand:
     def __init__(self):
         self.cards = []
@@ -48,7 +48,7 @@ class Hand:
             self.value -= 10
             self.aces -= 1
 
-# プレイヤークラスの定義
+# Define Player class
 class Player:
     def __init__(self, name):
         self.name = name
@@ -57,7 +57,7 @@ class Player:
     def __str__(self):
         return f"{self.name}'s hand: {', '.join(map(str, self.hand.cards))}. Value: {self.hand.value}"
 
-# ゲームのメインロジック
+# Main game logic
 def blackjack():
     print("Welcome to Blackjack!")
 
@@ -68,7 +68,7 @@ def blackjack():
     player = Player(player_name)
     dealer = Player("Dealer")
 
-    # 初期の手札を配る
+    # Deal initial hands
     for _ in range(2):
         player.hand.add_card(deck.deal())
         dealer.hand.add_card(deck.deal())
@@ -76,7 +76,7 @@ def blackjack():
     print(player)
     print(dealer)
 
-    # プレイヤーのターン
+    # Player's turn
     while player.hand.value < 21:
         action = input("Do you want to hit or stand? (h/s): ").lower()
         if action == 'h':
@@ -87,15 +87,16 @@ def blackjack():
         else:
             print("Invalid input. Please enter 'h' or 's'.")
 
-    # ディーラーのターン
+    # Dealer's turn
     while dealer.hand.value < 17:
         dealer.hand.add_card(deck.deal())
 
-    # 結果の表示
+    # Display final hands
     print("\nFinal hands:")
     print(player)
     print(dealer)
 
+    # Determine winner
     if player.hand.value > 21:
         print("You bust! Dealer wins.")
     elif dealer.hand.value > 21:
@@ -107,6 +108,6 @@ def blackjack():
     else:
         print("It's a tie!")
 
-# ゲームの実行
+# Run the game
 if __name__ == "__main__":
     blackjack()
