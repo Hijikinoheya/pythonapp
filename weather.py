@@ -17,3 +17,5 @@ if __name__ == "__main__":
     api_key = "YOUR_API_KEY"  # OpenWeatherMap APIキーを設定してください
     city = input("Enter city name (e.g., Japan,Tokyo): ").strip()
     print(get_weather(api_key, city))
+
+#Aun errod
