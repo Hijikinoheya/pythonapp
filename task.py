@@ -39,10 +39,10 @@ class TaskManager:
         while self.running:
             self.clear_screen()
             self.show_info()
-            time.sleep(5)  # 5秒ごとに情報を更新
+            time.sleep(1)  
 
     def clear_screen(self):
-        os.system('cls' if os.name == 'nt' else 'clear')  # コンソールをクリア
+        os.system('cls' if os.name == 'nt' else 'clear') 
 
     def list_processes(self):
         print("Listing currently running processes:")

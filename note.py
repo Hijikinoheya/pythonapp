@@ -23,7 +23,7 @@ class CuiNotepad:
                 self.read_file()
             elif command == "edit":
                 self.edit_file()
-            elif command == "exit":  # quitコマンドをexitコマンドに変更
+            elif command == "exit":  
                 print("Exiting the Notepad.")
                 break
             elif command.startswith("^save"):
@@ -103,7 +103,7 @@ class CuiNotepad:
         print("saveas - Save the current file with a new name")
         print("read - Display the content of the current file")
         print("edit - Edit the content of the current file")
-        print("exit - Exit the Notepad")  # quitコマンドをexitコマンドに変更
+        print("exit - Exit the Notepad") 
         print(":help - Show available commands")
 
 if __name__ == "__main__":

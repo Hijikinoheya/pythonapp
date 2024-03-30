@@ -14,8 +14,6 @@ def get_weather(api_key, city):
         return f"Failed to retrieve weather information for {city}"
 
 if __name__ == "__main__":
-    api_key = "YOUR_API_KEY"  # OpenWeatherMap APIキーを設定してください
+    api_key = "YOUR_API_KEY"  
     city = input("Enter city name (e.g., Japan,Tokyo): ").strip()
     print(get_weather(api_key, city))
-
-#Aun errod

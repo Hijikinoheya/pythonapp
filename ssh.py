@@ -8,7 +8,7 @@ class SSHClient:
 
     def connect(self, host, username, password):
         print(f"Connecting to {host}...")
-        time.sleep(1)  # Loading画面のために1秒待機
+        time.sleep(1)  
         try:
             self.client.connect(hostname=host, username=username, password=password)
             print("Connected to SSH server.")
